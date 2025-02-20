@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Personal Information</title>
+    <style>
+        @import url(https://unpkg.com/@webpixels/css@1.0/dist/index.css);
+        body{
+        font-family: 'Poiret One', cursive;
+        background: #3494E6;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #ec6e6e, #3452e6);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #ec6e6e, #3452e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+        h4{
+        font-weight: bold;
+        margin-bottom: 2.5rem;
+        }
+        .form-wrapper{
+        background: #fff;
+        border-radius: 5px;
+        padding: 50px;
+        }
+        .form-control, .custom-select{
+        border-radius: 0px;
+            color: #495057;
+            background-color: #f1f1f1;
+            border-color: none;
+        
+
+        }
+
+        .form-control:focus {
+            color: #495057;
+            background-color: #ffffff;
+            border:1px solid #b5b6b3;
+            outline: 0;
+            box-shadow: none;
+
+        }
+
+        .btn{
+        background: #3494E6;
+        border: #3494E6;
+        padding: 0.6rem 3rem;
+        font-weight: bold;
+        }
+        .btn:hover, .btn:focus, .btn:active, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+        background: #3494E6;
+        border: #3494E6;
+        outline: 0;
+        }
+            /* Custom styling for messages */
+    .messages {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        color: #ffffff;
+    }
+
+    .custom-message {
+        color: white; /* Set the text color to white */
+        background-color: #333; /* Set the background color */
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .success {
+        background-color: #4CAF50; /* Green background for success messages */
+    }
+
+    .error {
+        background-color: #D32F2F; /* Red background for error messages */
+    }
+
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-0 py-3">
+            <div class="container-xl">
+                <a class="navbar-brand" href="{% url 'Home' %}">
+                    <img src="/static/images/ps.png" class="h-9" alt="...">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% if user.is_authenticated %}
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    {% if user.is_staff %}
+                        <div class="navbar-nav mx-lg-auto">
+                            
+                            <a class="nav-item nav-link active" href="{% url 'Home' %}" aria-current="page">Home</a>
+                            <a class="nav-item nav-link" href="{% url 'StaffInfo' %}">My Information</a>
+                            <a class="nav-item nav-link" href="{% url 'StudentData' %}">Student Database</a>
+                            <a class="nav-item nav-link" href="#">Pricing</a>
+                        </div>
+                    {% elif user.is_student %}
+                        <div class="navbar-nav mx-lg-auto">
+                          
+                            <a class="nav-item nav-link active" href="{% url 'Home' %}" aria-current="page">Home</a>
+                            <a class="nav-item nav-link" href="{% url 'StudentInfo' %}">My Information</a>
+                            <a class="nav-item nav-link" href="{% url 'StaffData' %}">Staff Database</a>
+                            <a class="nav-item nav-link" href="{% url 'Team' %}">Team Members</a>
+                        </div>
+                        <div class="navbar-nav ms-lg-4">
+                            <a class="nav-item nav-link" href="#"></a>
+                        </div>
+                    {% endif %}
+                    <div class="d-flex align-items-lg-center mt-3 mt-lg-0" style="color: rgb(127, 127, 171);">
+                        <a href="{% url 'LogoutPage' %}" class="btn btn-sm btn-primary w-full w-lg-auto" style="color: rgb(0, 0, 0);">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </nav>
+    </header>           
+        <section class="contact-from pt-4">
+            <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-7 mx-auto">
+                    <div class="form-wrapper">
+                    <div class="row">
+                        <div class="col-md-12">
+                        <h4>Student Registration</h4>
+                        </div>
+                    </div>
+                    <form _lpchecked="1" method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <input type="hidden" name="user" value="{{ user.id }}">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="firstname" placeholder="First name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="lastname" placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="age" placeholder="Age">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone Number">
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="city" placeholder="City">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="state" placeholder="State">
+                            </div>
+                        </div>       
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="country" placeholder="country">
+                            </div>
+                        </div> 
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="address" placeholder="Address">
+                            </div>
+                        </div>                    
+
+                        </div>
+                        <div class="mt-3">
+                        <button class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+            </div>
+        </section>
+<!-- </body> -->
+</html>

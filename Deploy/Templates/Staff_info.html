@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Information</title>
+</head>
+<style>
+    @import url(https://unpkg.com/@webpixels/css@1.0/dist/index.css);
+    body{
+    color:#ffffff
+    }
+    .right_conatct_social_icon{
+        background: linear-gradient(to top right, #2c38bb -5%, #5010b7 100%);
+    }
+    .contact_us{
+        background-color: #0f0f0f;
+        /* padding: 120px 0px; */
+    }
+
+    .contact_inner{
+        background-color: #ffffff;
+        position: relative;
+        /* box-shadow: 20px 22px 44px #222222cc; */
+        border-radius: 25px;
+    }
+    .contact_field{
+        padding: 60px 340px 90px 100px;
+    }
+    .right_conatct_social_icon{
+        height: 100%;
+    }
+
+    .contact_field h3{
+    color: #000;
+        font-size: 40px;
+        letter-spacing: 1px;
+        font-weight: 600;
+    }
+    .contact_field p{
+        color: #000;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 35px;
+    }
+    .contact_field .form-control{
+        border-radius: 0px;
+        border: none;
+        border-bottom: 1px solid #000000;
+    }
+    .contact_field .form-control:focus{
+        box-shadow: none;
+        outline: none;
+        border-bottom: 2px solid #1325e8;
+    }
+    .contact_field .form-control::placeholder{
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+
+    .contact_info_sec {
+        position: absolute;
+        background-color: #2d2d2d;
+        right: 1px;
+        top: 18%;
+        height: 340px;
+        width: 340px;
+        padding: 40px;
+        border-radius: 25px 0 0 25px;
+    }
+    .contact_info_sec h4{
+        letter-spacing: 1px;
+        padding-bottom: 15px;
+    }
+
+    .info_single{
+        margin: 30px 0px;
+    }
+    .info_single i{
+        margin-right: 15px;
+    }
+    .info_single span{
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    button.contact_form_submit {
+        background: linear-gradient(to top right, #1325e8 -5%, #8f10b7 100%);
+        border: none;
+        color: #fff;
+        padding: 10px 15px;
+        width: 100%;
+        margin-top: 25px;
+        border-radius: 35px;
+        cursor: pointer;
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+    .socil_item_inner li{
+        list-style: none;
+    }
+    .socil_item_inner li a{
+        color: #fff;
+        margin: 0px 15px;
+        font-size: 14px;
+    }
+    .socil_item_inner{
+        padding-bottom: 10px;
+    }
+
+    .map_sec{
+        padding: 50px 0px;
+        background-color: #000;
+        color: #000;
+    }
+    .map_inner h4, .map_inner p{
+        color: #000;
+        text-align: center
+    }
+    .map_inner p{
+        font-size: 13px;
+        color: #000;
+        background-color: #000;
+    }
+    .map_bind{
+    margin-top: 50px;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+</style>
+<body>
+    <div class="body-wrap">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-0 py-3">
+                <div class="container-xl">
+                  <a class="navbar-brand" href="{% url 'Home' %}">
+                    <img src="/static/images/ps.png" class="h-9" alt="...">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  {% if user.is_authenticated %}
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                    {% if user.is_staff %}
+                        <div class="navbar-nav mx-lg-auto">
+                            <a class="nav-item nav-link active" href="{% url 'Home' %}" aria-current="page">Home</a>
+                            <a class="nav-item nav-link" href="{% url 'StaffInfo' %}">My Information</a>
+                            <a class="nav-item nav-link" href="{% url 'StudentData' %}">student Database</a>
+                        </div>
+                    {% elif user.is_student %}
+                        <div class="navbar-nav mx-lg-auto">
+                            <a class="nav-item nav-link active" href="{% url 'Home' %}" aria-current="page">Home</a>
+                            <a class="nav-item nav-link" href="{% url 'StudentInfo' %}">My Information</a>
+                            <a class="nav-item nav-link" href="{% url 'StaffData' %}">Staff Database</a>
+                            <a class="nav-item nav-link" href="{% url 'Team' %}">Team Members</a>
+                        </div>
+                        <div class="navbar-nav ms-lg-4">
+                        <a class="nav-item nav-link" href="#"></a>
+                        </div>
+                    {% endif %}
+                    <div class="d-flex align-items-lg-center mt-3 mt-lg-0" style="color:  rgb(127, 127, 171);">
+                      <a href="{% url 'LogoutPage' %}" class="btn btn-sm btn-primary w-full w-lg-auto" style="color: rgb(0, 0, 0);">
+                        Logout
+                      </a>
+                    </div>
+                  </div>
+                  {% endif %}
+                </div>
+              </nav>
+        </header>
+        <section class="contact_us">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="contact_inner">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="contact_form_inner">
+                                        <div class="contact_field">
+                                            <h3 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">STAFF INFO</h3>
+                                            <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">welcome {{user.username}} !!</p>
+                                            <form method="post" enctype="multipart/form-data">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="user" value="{{ user.id }}" />
+                                                <input type="text" class="form-control form-group" name="year" placeholder="Year" />
+                                                <input type="text" class="form-control form-group" name="post" placeholder="Position in institution" />
+                                                <input type="text" class="form-control form-group" name="department" placeholder="Department" />
+                                                <input type="text" class="form-control form-group" name="school" placeholder="Name of the institution" />
+                                                <input type="file" class="form-control form-group" name="imagefile" >
+                                                <button type="submit"  class="contact_form_submit">Submit</button>
+                                            </form> <br>
+                                            {% if messages %}
+                                            <div class="alert alert-danger">
+                                                <strong>Error:</strong> Please correct the form errors.
+                                                <ul>
+                                                    {% for message in messages %}
+                                                        <li>{{ message }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        {% endif %}
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="right_conatct_social_icon d-flex align-items-end">
+                                       <div class="socil_item_inner d-flex">
+                                          <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                                          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact_info_sec">
+                                <h4 style="color: #624398;">Staff Information Form </h4>
+                                <div class="d-flex info_single align-items-center">
+                                    <i class="fas fa-headset"></i>
+                                    <span style="color: #5961b8;">Educational Chatbot</span>
+                                </div>
+                                <div class="d-flex info_single align-items-center">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    <span>"Empowering learners with personalized support and instant access to knowledge, education chatbots pave the way for a tailored, 24/7 learning experience."</span>
+                                </div>
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

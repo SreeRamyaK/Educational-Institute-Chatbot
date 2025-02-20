@@ -1,0 +1,300 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "Hey", "Is anyone there?","Hi there", "Hello", "Hey there", "Howdy", "Hola", "Bonjour", "Konnichiwa", "Guten tag", "Ola"],
+         "responses": ["Hello there. Tell me how are you feeling today?", "Hi there. What brings you here today?", "Hi there. How are you feeling today?", "Great to see you. How do you feel currently?", "Hello there. Glad to see you're back. What's going on in your world right now?"]
+        },
+        {"tag": "morning",
+        "patterns": ["Good morning"],
+        "responses": ["Good morning. I hope you had a good night's sleep. How are you feeling today? "]
+        },
+        {"tag": "evening",
+        "patterns": ["Good evening"],
+        "responses": ["Good evening. How has your day been?"]
+        },
+        {"tag": "night",
+        "patterns": ["Good night"],
+        "responses": ["Good night. Get some proper sleep", "Good night. Sweet dreams."]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye", "Au revoir", "Sayonara", "ok bye", "Bye then", "Fare thee well"],
+         "responses": ["See you later.", "Have a nice day.", "Bye! Come back again.", "I'll see you soon."]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help", "Than you very much"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"]
+        },
+        {"tag": "name",
+        "patterns": ["My name is ", "I am name.", "I go by "],
+        "responses": ["Oh nice to meet you. Tell me how was your week?", "Nice to meet you. So tell me. How do you feel today?", "That's a great name. Tell me more about yourself."]
+        },
+
+        {"tag": "timings",
+         "patterns": ["When is the college open?", "Can you tell me what the college's timings are", "When does the college open and close?", "What are the college's hours of operation", "College timings","The college's opening and closing times","When does the college start and end"],
+         "responses": ["ShiftI-> 8:10 a.m to 12:40 p.m , ShiftII-> 1:00 p.m to 5:30 p.m"],
+         "context_set": ""
+        },
+
+        {"tag": "ug timings",
+         "patterns": ["what are the timings for the ug?", "Can you tell me what the timings are for the UG?", "Can you please let me know the timings of the UG?", "What are the timings for the Undergraduate ?", "How are the UG timings determined?", "Can you please let me know what the timing of the UG is?","The UG will be held at what time?","What are the UG timings?"],
+         "responses": ["ShiftI-> 8:10 a.m to 12:40 p.m, ShiftII-> 1:00 p.m to 5:30 p.m "],
+         "context_set": ""
+        },
+
+        {"tag": "pg timings",
+         "patterns": ["what are the timings for the pg?", "What are the PG timings?", "Is there a specific time for the PG?", "The PG will take place at what time?","PG timings: what are they?","Can you tell me what the timings are for the PG?","Can you please let me know the timings of the PG?","What are the timings for the Postgraduate ?","How are the PG timings determined?","Can you please let me know what the timing of the PG is?","The PG will be held at what time?"],
+         "responses": ["ShiftI-> 8:10 a.m to 12:40 p.m, ShiftII-> 1:00 p.m to 5:30 p.m"],
+         "context_set": ""
+        },
+
+        {"tag": "placements",
+         "patterns": ["Are there any placements available at the college?", "Which companies are available for placement?", "Are there any companies available for placement?", "Is there a list of available companies?", "Could you please tell me which companies are available for placement?","Do you have any available companies for placement?","Would you like to know which companies are available for placement?"],
+         "responses": ["Every year, a placement program will be conducted for final-year students."],
+         "context_set": ""
+        },
+
+        {"tag": "placements-ug",
+         "patterns": ["Who are the companies that come for UG?", "What companies come for UG?", "Which companies come for UG?", "Is there a company that comes for UG?","what are the companies that come for ug ?"],
+         "responses": ["Some of the companies are: Sutherland,  NTrust , Infotech, NielsenIQ, Virtusa, Ramana Vidhyalaya School, Horizon international School, Accenture, Infosys, Wipro, TATA etc."],
+         "context_set": ""
+        },
+ 
+        {"tag": "placements-pg",
+         "patterns": ["Who are the companies that come for PG?", "What companies come for PG?", "Which companies come for PG?", "Is there a company that comes for PG?", "what are the companies that come for pg ?"],
+         "responses": ["Mphasis, McKinsey, kotak mahindra bank,  Bank Bazzar, Guide House, muthoot, ADITYA BIRLA  HELATH INSURANCE CO LTD etc."],
+         "context_set": ""
+        },
+
+        {"tag": "courses-ug(number)",
+         "patterns": ["how many courses in undergraduate?","what is the no of undergraduate courses?","in an ug program,how many courses are offered?","ug courses?","how many ug courses are there?","ug courses available?","in ug studies,how many courses are available?","ug courses number?","there are how many course available at the ug level?","in ug,how many courses are offered?","what are the no of ug courses?"],
+         "responses": [" 27 courses are available in the Undergraduate."],
+         "context_set": ""
+        },
+
+        {"tag": "departments-ug",
+         "patterns": ["How many departments are in Ug?", "What is the number of departments in Ug?", "Ug has how many departments?","How many departments does Ug have?","Is there a total of how many departments in Ug?","Which departments make up Ug?"],
+         "responses": [" 27 departments in Undergraduate"],
+         "context_set": ""
+        },
+
+        {"tag": "courses-pg(number)",
+         "patterns": ["how many courses in Postgraduate?","what is the no of Postgraduate courses?","in an pg program,how many courses are offered?","pg courses?","how many pg courses are there?","pg courses available?","in pg studies,how many courses are available?","pg courses number?","there are how many course available at the pg level?","in pg,how many courses are offered?","what are the no of pg courses?"],
+         "responses": ["14 courses"],
+         "context_set": ""
+        },
+
+        {"tag": "departments-pg",
+         "patterns": ["How many departments are in pg?", "What is the number of departments in pg?","pg has how many departments?","How many departments does pg have?","Is there a total of how many departments in pg?","Which departments make up pg?"],
+         "responses": ["14 departments in postgraduate"],
+         "context_set": ""
+        },
+
+        {"tag": "courses-aided(number)",
+         "patterns": ["how many ug courses were aided","ug courses that were aided","what is the no of ug courses that are assisted","what percentge of course are aided","ug courses aided by federal funding","in the ug,how many course are aided","what is the no of courses in ug,that are aided","in ug courses,how many courses were aided by the program","in ug courses,how many courses were aided"],
+         "responses": ["10 aided courses are available"],
+         "context_set": ""
+        },
+
+        {"tag": "courses-aided",
+         "patterns": ["What are the courses available in undergraduate aided courses?","In undergraduate aided courses, what courses are available?","Which undergraduate aided courses are available?","How are undergraduate aided courses structured?","Are there any undergraduate aided courses available?","Undergraduate aided courses: what are they?","In undergraduate aided courses, what kinds of courses are available?","Can you tell me about the undergraduate aided courses offered?","Which courses can I take as an undergraduate aided student?"],
+         "responses": ["UG AIDED B.A History & tourism,  B.A Economics,  B.A English, B.Sc Mathematics, B.Sc Statistics, B.Sc Computer science,  B.Sc Physics , B.Sc Chemistry, B.Sc Plant biology and plant bio-technology,  B.Sc General"],
+         "context_set": ""
+        },
+
+        {"tag": "coures-self-finance(pg)",
+         "patterns": ["What are the courses available in postgraduate self-finance?", "In postgraduate self-finance, what courses are available?", "How does postgraduate self-finance work?", "Self-finance postgraduate courses: what are they?","Can you tell me about the postgraduate courses available in self-finance?","How can I study self-finance at the postgraduate level?","In the postgraduate self-finance program, what courses are offered?","How do I find out what postgraduate self-finance courses are available?","In what courses is postgraduate self-finance offered?","Is there an postgraduate course in self-finance available?"],
+         "responses": [" M.A. (English), M.A. (Human Resource and Management) , M.A. (Journalism and Communication),  M.Com, M.Com. (Accounting and Finance), M.Com. (Corporate Secretaryship), M.Com. M.Sc. (Applicable Mathematics),  M.Sc. (Bio-Statistics), M.Sc. (Chemistry), M.Sc. (Computer Science), M.Sc. Home Science – Food Science, Nutrition and Dietetics, M.Sc. (Physics),  M.Sc. (Plant Biology and Plant Bio-technology), Master of Social Work"],
+         "context_set": ""
+        },
+
+        {"tag": "m.phil",
+         "patterns": ["What courses are available for the M.Phil.?", "For the M.Phil., what courses are available?", "What are the courses available for a M.Phil?", "Are there any M.Phil courses available?","Which courses are available for M.Phil?","Is there a course list for the M.Phil?", "What are the available M.Phil courses?"],
+         "responses": ["M.Phil. (Commerce), M.Phil. (Physics),  M.Phil. (Statistics), M.Phil. Computer Science"],
+         "context_set": ""
+        },
+
+        {"tag": "phd",
+         "patterns": ["What are the available PhD courses?", "Can you tell me what PhD courses are available?","Are there any PhD courses available?","Where can I find PhD courses?","In what fields are PhD courses available?"],
+         "responses": ["History and Tourism (Full Time and Part Time), Physics (Full Time and Part Time),  Plant Biology & Plant Biotechnology (Full Time and Part Time), Computer Science (Full Time and Part Time), Commerce (Full Time and Part Time), Economics (Part Time), Tamil (Part Time), Mathematics (Part Time),  English (Part Time)cx "],
+         "context_set": ""
+        },
+
+        {"tag": "teachers",
+         "patterns": ["How many teachers are there in the college? ","What is the number of teachers at the college?","In the college, how many teachers are there?","Does the college have a lot of teachers?","The college has how many teachers?","What is the college's teacher population?","Can you tell me how many teachers the college has?","Is the college staffed with how many teachers?"],
+         "responses": ["There are more than 300 staff members in the college."],
+         "context_set": ""
+        },
+
+        {"tag": "hostel",
+         "patterns": ["Is there any hostel available at the college?","Does the college have a hostel?","Is there a hostel at the college?","The college has a hostel, right?","College hostels are available, right?","The college offers hostels, right?","At the college, is there a hostel?"],
+         "responses": ["Yes, the hostel facility is available in the college."],
+         "context_set": ""
+        },
+
+        {"tag": "facility",
+         "patterns": ["How will the hostel facilities be?", "What will the hostel's facilities be like?","What kind of facilities will there be at the hostel?","What facilities will the hostel have?","What facilities will be available at the hostel?","In what way will the hostel be equipped?","What are the hostel facilities like?","Can you tell me about the hostel facilities?","Do you have any idea how the hostel facilities will be?"],
+         "responses": ["The hostels are provided with all basic facilities"],
+         "context_set": ""
+        },
+
+        {"tag": "fees",
+         "patterns": ["Can you tell me what the fee structure of a college is for undergraduates?","Is there a fee structure for undergraduates at a college?","Would you be able to tell me what the college's undergraduate fee structure is?","What is the undergraduate fee structure at your college?","Do you know what an undergraduate college's fee structure is?","For undergraduates, what is the college fee structure?","If I was to enroll in an undergraduate college, what would the fee structure be like?"],
+         "responses": ["The fee structure is divided into 3 installments.: Installment 1- during admission, Installment 2- to be paid by October,  Installment 3- to pay in December"],
+         "context_set": ""
+        },
+
+        {"tag": "fees-ug",
+         "patterns": ["How do you treat Heat Exhaustion?", "what to do if i feel Exhausted due to heat?", "Which medicine to take if I get Exhausted?", "How to cure Heat Exhaustion?","What is the fee structure for undergraduates at a college?","Do you know what the undergraduate fee structure at a college is?"],
+         "responses": ["The fee structure is divided into 3 installments: Installment 1- during admission, Installment 2- to be paid by October, Installment 3- to pay in December"],
+         "context_set": ""
+        },
+
+        {"tag": "fees-pg",
+         "patterns": ["Can you tell me what the fee structure of a college is for postgraduates?","Is there a fee structure for postgraduates at a college?","Would you be able to tell me what the college's postgraduate fee structure is?","What is the postgraduate fee structure at your college?","Do you know what an postgraduate college's fee structure is?","For postgraduates, what is the college fee structure?","If I was to enroll in an postgraduate college, what would the fee structure be like?","What is the fee structure for postgraduates at a college?","Do you know what the postgraduate fee structure at a college is?"],
+         "responses": [" The fee structure is divided into 3 installments.: Installment 1- during admission, Installment 2- to be paid by October,  Installment 3- to pay in December"],
+         "context_set": ""
+        },
+
+        {"tag": "principal",
+         "patterns": ["Who is the principal of Shri Shankarlal Sundarbai shasun Jain college for  womens?","Shri Shankarlal Sundarbai shasun Jain college's principal is who?","What is the name of Shri Shankarlal Sundarbai shasun Jain college principal?","Can you tell me who the principal of Shri Shankarlal Sundarbai shasun Jain college is?"],
+         "responses": ["Principal-Dr. S Padmavathi"],
+         "context_set": ""
+        },
+
+        {"tag": "viceprincipal",
+         "patterns": ["Who is the vice principal of Shri Shankarlal Sundarbai shasun Jain college of womens?","Shri Shankarlal Sundarbai shasun Jain college of womens?'s vice principal is who?","Can you tell me who the vice principal of Shri Shankarlal Sundarbai shasun Jain college of womens? is?","What is the name of Shri Shankarlal Sundarbai shasun Jain college of womens's vice principal?","Shri Shankarlal Sundarbai shasun Jain college of womens's vice principal?"],
+         "responses": ["Vice-principal: Dr. S. Rukmani"],
+         "context_set": ""
+        },
+
+        {"tag": "address",
+         "patterns": ["What is the address of Shri Shankarlal Sundarbai shasun Jain college of womens?","What is the address of Shri Shankarlal Sundarbai shasun Jain college of womens?","Where is Shri Shankarlal Sundarbai shasun Jain college of womens of womens","Could you please tell me the address of Shri Shankarlal Sundarbai shasun Jain college of womens","How do I get to Shri Shankarlal Sundarbai shasun Jain college of womens?","Can you give me the address of Shri Shankarlal Sundarbai shasun Jain college of womens?","Can you tell me how to find Shri Shankarlal Sundarbai shasun Jain college of womens?","Could you please let me know the address of Shri Shankarlal Sundarbai shasun Jain college of womens?","Can you tell me the address of the Shri Shankarlal Sundarbai shasun Jain college of womens?"],
+         "responses": ["Address: No:3, near T.nagar, chennai - 600017"],
+         "context_set": ""
+        },
+
+        {"tag": "contact",
+         "patterns": ["How to contact the college for queries?","What is the best way to contact the college?","For questions about the college, how can I contact them?","If you have any questions, how can you contact the college?","What are the contact details for the college?","In case of questions, how can I get in touch with the college?","Is there a way to reach the college if I have questions?","Can you tell me how to contact the college if you have a question?","For inquiries, how can I reach the college?","Can I contact the college with questions?","I have a question about the college. How do I get in touch with them?"],
+         "responses": ["You can reach us by phone at +91 044 22654976 or through E-mail -- query@SSN jain.edu.in"],
+         "context_set": ""
+        },
+
+        {"tag": "canteen",
+         "patterns": ["Canteens are available in colleges?","Does the college have a canteen?","Colleges have canteens","Is there a canteen in the college?","College canteens are available?","There is a canteen in college, is there?","A canteen is available in the college?"],
+         "responses": ["Yes, there is a canteen at the college, which is open to students and staffs."],
+         "context_set": ""
+        },
+
+        {"tag": "payment-method",
+         "patterns": ["Does the college canteen accept cash?","Is cash accepted at the college canteen?","Can cash be used at the college canteen?","Is the college canteen cash-only?","What is the cash policy of the college canteen?","Cash is accepted at the college canteen?","Can cash be paid at the college canteen?","Do you accept cash at the college canteen?","Could you tell me if the college canteen accepts cash?"],
+         "responses": [" Yeah Cash is acceptable &  digital system is also available"],
+         "context_set": ""
+        },
+
+        {"tag": "library",
+         "patterns": ["Is there a library in the college?","Does the college have a library?","The college has a library, right?","Do you have a library at the college?","Colleges usually have libraries, don't they?","Is the college equipped with a library?","Colleges have libraries, right?","Can you tell me if the college has a library?","What kind of library does the college have?"],
+         "responses": [" Yes, College library provides all the reference books, technical, non- technical journals, e-journals and e-books."],
+         "context_set": ""
+        },
+
+        {"tag": "parking",
+         "patterns": ["Is a parking facility available at the college?","Does the college have a parking lot?","At the college, is there a parking lot?","The college has a parking lot, right?","Can the college provide parking?","Is the college equipped with a parking lot?","Are there parking facilities at the college?","Do you have a parking lot at the college?","Has the college got a parking lot?"],
+         "responses": [" Yes, the college  has the facility for parking for both shifts "],
+         "context_set": ""
+        },
+
+        {"tag": "certification",
+         "patterns": ["Certificate courses are available at the college?", "There are any certificate courses offered by the college?"],
+         "responses": [" Yes, the college offers various certificate courses."],
+         "context_set": ""
+        },
+        
+        {"tag": "hostel boys-girls",
+        "patterns":["is available for boys and girls","for boys","for girls"],
+        "responses":["There are two seperate hostel for boy and girls."],
+        "context_set":""
+       },
+
+       {"tag": "accommodation",
+       "patterns":["how many rooms are in hostel","accommodation","capacity of hostel"],
+       "responses":[" Our hostel is provided with 8 storied buildings which can accommodate 500 students"],
+       "context_set":""
+       },
+
+       {"tag": "hostel accommodation",
+       "patterns":["how many rooms are in hostel","accommodation","capacity of hostel"],
+       "responses":[" Our hostel is provided with 8 storied buildings which can accommodate 500 students"],
+       "context_set":""
+       },
+
+       {"tag": "hostel rooms",
+       "patterns":["how many rooms are in hostel","accommodation","capacity of hostel"],
+       "responses":[" Single, 2 , 3 & 8 Bedded accommodation are provided for studentts"],
+       "context_set":""
+       },
+
+       {"tag": "hostel gym and indoor game facility",
+       "patterns":["gym","indoor game","does hostel have gym facility","is there any physical facility available"],
+       "responses":["hostel is providing physical facility like Gym and indoor game facility"],
+       "context_set":""
+       },
+       {"tag": "hostel wifi connectivity",
+       "patterns":["wifi","hostel has wifi","is wifi available"],
+       "responses":[" wifi is available for student use"],
+       "context_set":""
+       },
+
+       {"tag": "health and hospital",
+       "patterns":["is hospital avialable","hospital nearby","emergency condition","in case of emergency"],
+       "responses":[" 24/7 in house medical care with 1000 beded Multi-Speciality Hospital within the campus for emergency"],
+       "context_set":""
+       },
+
+
+       {"tag": " hostel tv",
+       "patterns":["tv","television","can watch television","is tv available"],
+       "responses":[" Hostel facilitate has Entertainment halls with multi channel television facility"],
+       "context_set":""
+       },
+
+       {"tag": " hostel visitor",
+       "patterns":["visitors","can visit the facility","is visitors allowed"],
+       "responses":[" Exclusive visitors lounge is available"],
+       "context_set":""
+       },
+
+       {"tag": " hostel safety ",
+       "patterns":["safety","how about safety","is hostel secured"],
+       "responses":[" 24/7 security vigilance for hostel security"],
+       "context_set":""
+       },
+
+       {"tag": "hostel drinking water",
+       "patterns":["drinking water","water for drinking","is drinking water available"],
+       "responses":[" Treated RO water in all the floors for drinking purpose "],
+       "context_set":""
+       },
+
+       {"tag": "hostel bath",
+       "patterns":["bath","hot bath","is bath available"],
+       "responses":[" Solar hot water for bathing is also available"],
+       "context_set":""
+       },
+
+       {"tag": "hostel environment",
+       "patterns":["hostel environment","hygenic","does hostel environment is hygenic"],
+       "responses":[" Clean Hygienic environment are maintained by the management"],
+       "context_set":""
+       },
+
+       {"tag": "smoking",
+       "patterns":["smoke","can smoke","is smoking allowed","does have any smoking zone"],
+       "responses":[" Its a Smoking – free campus"],
+       "context_set":""
+       },
+       {"tag": "Ragging",
+       "patterns":["raggging","can rag","is ragging allowed","does have any action against ragging"],
+       "responses":[" Its a ragging – free campus"],
+       "context_set":""
+       }
+   ]
+}

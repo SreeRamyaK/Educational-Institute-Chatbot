@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+	<script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.2/swiper-bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<style>
+    @import url(https://unpkg.com/@webpixels/css@1.0/dist/index.css);
+    body{
+        overflow: hidden;
+    }
+    /* Add this style block to your existing styles */
+    .navbar-brand img {
+        width: 40px; /* Adjust the width as needed */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .feature-icon img {
+        max-width: 50%; /* Make sure images within features are responsive */
+        height: auto; /* Maintain aspect ratio */
+    }
+</style>
+<body class="is-boxed has-animations">
+    <div class="body-wrap">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-0 py-3">
+                <div class="container-xl">
+                  <a class="navbar-brand" href="{% url 'Home' %}">
+                    <img src="/static/images/ps.png" class="h-9" alt="...">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  {% if user.is_authenticated %}
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                    {% if user.is_staff %}
+                        <div class="navbar-nav mx-lg-auto">
+                            <a class="nav-item nav-link active" href="{% url 'Home' %}" aria-current="page">HOME</a>
+                            <a class="nav-item nav-link" href="{% url 'StaffInfo' %}">My Information</a>
+                            <a class="nav-item nav-link" href="{% url 'StudentData' %}">Student Database</a>
+                            <a class="nav-item nav-link" href="#">Pricing</a>
+                        </div>
+                    {% elif user.is_student %}
+                        <div class="navbar-nav mx-lg-auto">
+                            <a class="nav-item nav-link active" href="{% url 'Home' %}" aria-current="page">Home</a>
+                            <a class="nav-item nav-link" href="{% url 'StudentInfo' %}">My Information</a>
+                            <a class="nav-item nav-link" href="{% url 'StaffData' %}">Staff Database</a>
+                            <a class="nav-item nav-link" href="{% url 'Team' %}">Team Members</a>
+                        </div>
+                        <div class="navbar-nav ms-lg-4">
+                        <a class="nav-item nav-link" href="#"></a>
+                        </div>
+                    {% endif %}
+                    <div class="d-flex align-items-lg-center mt-3 mt-lg-0" style="color:  rgb(127, 127, 171);">
+                      <a href="{% url 'LogoutPage' %}" class="btn btn-sm btn-primary w-full w-lg-auto" style="color: rgb(127, 127, 171);">
+                        Logout
+                      </a>
+                    </div>
+                  </div>
+                  {% endif %}
+                </div>
+              </nav>
+              
+        </header>
+        <main>
+            <!-- <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+						<div class="hero-copy">
+	                        <h1 class="hero-title mt-0" style="color: #62acd7;">Education Based Chatbot</h1>
+	                        <p class="hero-paragraph" style="color: #ccc;">Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.</p>
+						</div>
+						<div class="hero-figure anime-element">
+							<svg class="placeholder" width="528" height="396" viewBox="0 0 528 396">
+								<rect width="528" height="396" style="fill:transparent;" />
+							</svg>
+							<div class="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+							<div class="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+							<div class="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+							<div class="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+							<div class="hero-figure-box hero-figure-box-05"></div>
+							<div class="hero-figure-box hero-figure-box-06"></div>
+							<div class="hero-figure-box hero-figure-box-07"></div>
+							<div class="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+							<div class="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+							<div class="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+						</div>
+                    </div>
+                </div>
+            </section> -->
+
+            <section class="features section">
+                <div class="container">
+					<div class="features-inner section-inner has-bottom-divider">
+                        <div class="features-wrap">
+                            <div class="feature text-center is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img src="/static/images/ava.png" alt="Feature 01">
+                                    </div>
+                                    <h4 class="feature-title mt-34" style="color: aliceblue;">Person-1</h4>
+                                    <p class="text-sm mb-0">Role of the Person</p>
+                                </div>
+                            </div>
+							<div class="feature text-center is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img src="/static/images/ava.png" alt="Feature 02">
+                                    </div>
+                                    <h4 class="feature-title mt-34" style="color: aliceblue;">Person-2</h4>
+                                    <p class="text-sm mb-0" >Role of the Person</p>
+                                </div>
+                            </div>
+                            <div class="feature text-center is-revealing">
+                                <div class="feature-inner">
+                                    <div class="feature-icon">
+										<img src="/static/images/ava.png" alt="Feature 03">
+                                    </div>
+                                    <h4 class="feature-title mt-34" style="color: aliceblue;">Person-3</h4>
+                                    <p class="text-sm mb-0">Role of the Person</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/js/main.min.js"></script>
+</body>
+</html>

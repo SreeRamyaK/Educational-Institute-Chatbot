@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information</title>
+</head>
+<style>
+    @import url(https://unpkg.com/@webpixels/css@1.0/dist/index.css);
+	table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+/* general styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
+</style>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-0 py-3">
+            <div class="container-xl">
+              <a class="navbar-brand" href="{% url 'Home' %}">
+                <img src="/static/images/ps.png" class="h-9" alt="...">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              {% if user.is_authenticated %}
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                {% if user.is_staff %}
+                    <div class="navbar-nav mx-lg-auto">
+                        <a class="nav-item nav-link active" href="{% url 'Home' %}" aria-current="page">Home</a>
+                        <a class="nav-item nav-link" href="{% url 'StaffInfo' %}">My Information</a>
+                        <a class="nav-item nav-link" href="{% url 'StudentData' %}">student Database</a>
+                        <a class="nav-item nav-link" href="#">Pricing</a>
+                    </div>
+                {% elif user.is_student %}
+                    <div class="navbar-nav mx-lg-auto">
+                        <a class="nav-item nav-link active" href="{% url 'Home' %}" aria-current="page">Home</a>
+                        <a class="nav-item nav-link" href="{% url 'StudentInfo' %}">My Information</a>
+                        <a class="nav-item nav-link" href="{% url 'StaffData' %}">Staff Database</a>
+                        <a class="nav-item nav-link" href="{% url 'Team' %}">Team Members</a>
+                    </div>
+                    <div class="navbar-nav ms-lg-4">
+                    <a class="nav-item nav-link" href="#"></a>
+                    </div>
+                {% endif %}
+                <div class="d-flex align-items-lg-center mt-3 mt-lg-0" style="color:  rgb(127, 127, 171);">
+                  <a href="{% url 'LogoutPage' %}" class="btn btn-sm btn-primary w-full w-lg-auto" style="color: rgb(0, 0, 0);">
+                    Logout
+                  </a>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </nav>
+    </header>
+	<h1 style="font-style: italic;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Staff Database :</h1>
+	<table>
+		<thead>
+		  <tr>
+			<th scope="col">Username</th>
+			<th scope="col">Profile</th>
+			<th scope="col">Year</th>
+			<th scope="col">Post</th>
+			<th scope="col">Department</th>
+			<th scope="col">School</th>
+		  </tr>
+		</thead>
+		<tbody>
+      {% for model in models %}
+		  <tr>
+			<th scope="col">{{model.user}}</th>
+			<th scope="col"><img src="{{model.imagefile.url}}" width="100px" height="100px" alt="Profile Image"></th>
+			<th scope="col">{{model.year}}</th>
+			<th scope="col">{{model.post}}</th>
+			<th scope="col">{{model.department}}</th>
+			<th scope="col">{{model.school}}</th>
+		  </tr>
+      {% endfor %}
+		</tbody>
+	  </table>
+</body>
+</html>
